@@ -2,7 +2,11 @@
   "name": "task-manager-api",
   "version": "1.0.0",
   "type": "module",
+<<<<<<< HEAD
   "main": "server.js",
+=======
+  "main": "index.js",
+>>>>>>> 74e25ec (Add 'type': 'module' to support ES Modules)
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
