@@ -1,19 +1,21 @@
+# Use an official Node.js image
 FROM node:18
 
+# Set working directory
 WORKDIR /app
 
-# Copy only package.json to ensure proper layer caching
-COPY package.json ./
+# Copy and verify package files
+COPY package*.json ./
+RUN echo "=== package.json ===" && cat package.json && echo "=== END ==="
 
-RUN echo "=== Package.json contents ===" && cat package.json && echo "=== End package.json ==="
-
+# Install dependencies
 RUN npm install
 
-# Now copy the rest of the app
+# Copy all other source code
 COPY . .
 
-RUN echo "=== Final package.json contents ===" && cat package.json && echo "=== End final package.json ==="
-
+# Expose port
 EXPOSE 3000
 
+# Run the app
 CMD ["npm", "start"]
