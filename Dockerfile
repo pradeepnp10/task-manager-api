@@ -11,6 +11,9 @@ RUN npm install
 # Copy rest of the code
 COPY . .
 
+# Verify package.json has the correct type
+RUN cat package.json
+
 # Expose the port the app runs on
 EXPOSE 3000
 
