@@ -6,7 +6,9 @@ WORKDIR /app
 
 # Copy and verify package files
 COPY package*.json ./
-RUN echo "=== package.json ===" && cat package.json && echo "=== END ==="
+
+# Debug: Show what was copied
+RUN echo "=== package.json contents ===" && cat package.json && echo "=== END package.json ==="
 
 # Install dependencies
 RUN npm install
@@ -14,7 +16,10 @@ RUN npm install
 # Copy all other source code
 COPY . .
 
-# Expose port
+# Debug: Show final package.json
+RUN echo "=== Final package.json contents ===" && cat package.json && echo "=== End final package.json ==="
+
+# Expose the port the app runs on
 EXPOSE 3000
 
 # Run the app
