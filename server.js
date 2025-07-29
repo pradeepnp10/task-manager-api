@@ -10,6 +10,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// 👇 Add this route
+app.get('/', (req, res) => {
+  res.send('🚀 Task Manager API is running!');
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 
